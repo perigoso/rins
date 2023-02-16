@@ -1,0 +1,42 @@
+name: build-docs
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux
+    steps:
+      - name: Get date
+        id: date
+        run: echo "date=$(date +%F)" >> $GITHUB_OUTPUT
+
+      - name: Cache pkgs
+        uses: actions/cache@v1
+        with:
+          path: /var/cache/pacman/pkg
+          key: arch-pkgs-${{steps.date.outputs.date}}
+          restore-keys: arch-pkgs
+
+      - name: Update system and install dependencies
+        run: pacman -Syu --noconfirm --noprogressbar --needed python-sphinx python-sphinx-furo python-sphinx-autodoc-typehints git rsync
+
+      - name: Checkout source branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Generate website
+        run: |
+          mkdir deploy
+          sphinx-build -b html . deploy
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: docs
+          folder: deploy
+          clean: true
