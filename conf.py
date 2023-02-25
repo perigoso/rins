@@ -22,7 +22,7 @@ intersphinx_mapping = {
 
 templates_path = ["_templates"]
 
-exclude_patterns = [".github/*", "LICENSE", "build/*"]
+exclude_patterns = [".github/*", "build/*", "LICENSE", "README.rst"]
 
 # -- Options for HTML output -------------------------------------------------
 
