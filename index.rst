@@ -26,13 +26,17 @@ Because it is not SWD.
 
 It also means Kidneys in Portuguese, because having to deal with these protocols feels like getting punched in the kidneys.
 
-Table of contents
------------------
+.. toctree::
+	:hidden:
+	:caption: Contents:
+	:maxdepth: 2
+
+	wch-link/index
 
 .. toctree::
 	:hidden:
 	:maxdepth: 2
-	:caption: Contents:
+	:caption: Meta:
 
 	license
 	contributors
