@@ -27,7 +27,7 @@ Returns the version of the probe.
 Major/Minor
 ~~~~~~~~~~~
 
-Major and minor version of the probe.
+Major and minor version of the probe, ``major.minor``.
 
 ID
 ~~
@@ -36,13 +36,40 @@ Probe ID code
 
 Extracted strings from official toolchain:
 
-	``0x01`` - "WCH-Link-CH549 (RV)";
-	``0x02`` - "WCH-LinkE-CH32V307 (RV)";
-	``0x03`` - "WCH-LinkS-CH32V203 (RV)";
-	``0x04`` - "WCH-LinkB (RV)";
+- ``0x01``: WCH-Link-CH549 (RV)
+
+- ``0x02``: WCH-LinkE-CH32V307 (RV)
+
+- ``0x03``: WCH-LinkS-CH32V203 (RV)
+
+- ``0x04``: WCH-LinkB (RV)
 
 ``0x02`` - Connect
 ------------------
+
+.. table:: Table 3 - Connect cmd
+
+	+-------------+-------+
+	| Byte        | 0     |
+	+=============+=======+
+	| Description | 0x02  |
+	+-------------+-------+
+
+.. table:: Table 4 - Connect response
+
+	+-------------+---------+
+	| Byte        | 0 .. 3  |
+	+=============+=========+
+	| Description | CHIP ID |
+	+-------------+---------+
+
+On error the response is of group  ``0x55`` `Error`_ with still unknown format
+
+CHIP ID
+~~~~~~~
+
+The chip ID of the connected chip. MSB first.
+
 
 ``0x03`` - Unknown
 ------------------
@@ -62,3 +89,5 @@ Terminate connection (unsure what this does)
 .. toctree::
 	:maxdepth: 2
 	:hidden:
+
+.. _Error: error.html

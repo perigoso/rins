@@ -7,6 +7,8 @@ The WCH-Link has two modes of operation, DAPLink and RV (i.e. RISC-V).
 
 This documentation refers to the RV mode of operation only, changing the mode of operation is also out of scope.
 
+This documentation was based on the 2.5 firmware version, differences are expected between versions.
+
 Device Descriptors
 ------------------
 
