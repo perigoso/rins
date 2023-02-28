@@ -32,6 +32,8 @@ It also means Kidneys in Portuguese, because having to deal with these protocols
 	:maxdepth: 2
 
 	wch-link/index
+	rvswd/index
+	sdi/index
 
 .. toctree::
 	:hidden:
